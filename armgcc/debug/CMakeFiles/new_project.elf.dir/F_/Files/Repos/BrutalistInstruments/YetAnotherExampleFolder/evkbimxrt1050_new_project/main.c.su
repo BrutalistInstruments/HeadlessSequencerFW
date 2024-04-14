@@ -1,0 +1,5 @@
+f:\files\repos\brutalistinstruments\examplenxp\examplearchivetarget\cmsis\core\include\core_cm7.h:2041:22:__NVIC_SetPriority	16	static
+f:\files\repos\brutalistinstruments\examplenxp\examplearchivetarget\cmsis\core\include\core_cm7.h:2259:26:SysTick_Config	16	static
+F:/Files/Repos/BrutalistInstruments/YetAnotherExampleFolder/evkbimxrt1050_new_project/main.c:37:6:SysTick_Handler	4	static
+F:/Files/Repos/BrutalistInstruments/YetAnotherExampleFolder/evkbimxrt1050_new_project/main.c:44:6:SysTick_DelayTicks	24	static
+F:/Files/Repos/BrutalistInstruments/YetAnotherExampleFolder/evkbimxrt1050_new_project/main.c:58:5:main	8	static

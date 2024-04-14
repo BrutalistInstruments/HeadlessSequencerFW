@@ -1,0 +1,27 @@
+# ninja log v5
+15	191	7348362367462902	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/YetAnotherExampleFolder/evkbimxrt1050_new_project/peripherals.c.obj	405ba6688b112fc1
+48	234	7348362367842852	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/YetAnotherExampleFolder/evkbimxrt1050_new_project/dcd.c.obj	b004a8f906e1dcc7
+87	450	7348362370362840	CMakeFiles/new_project.elf.dir/39572e0520b83c42fd8c8d413680248b/ExampleArchiveTarget/components/serial_manager/fsl_component_serial_port_uart.c.obj	54fe421f72e18ab7
+31	460	7348362370322900	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/YetAnotherExampleFolder/evkbimxrt1050_new_project/board.c.obj	63c0ee74005654c3
+67	497	7348362370832881	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/components/uart/fsl_adapter_lpuart.c.obj	1a5b1fc48c9f1911
+23	520	7348362370772867	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/YetAnotherExampleFolder/evkbimxrt1050_new_project/pin_mux.c.obj	d6ca1ff6c7ed9ca3
+77	581	7348362371532874	CMakeFiles/new_project.elf.dir/39572e0520b83c42fd8c8d413680248b/ExampleArchiveTarget/components/serial_manager/fsl_component_serial_manager.c.obj	fd96a07cbe473a85
+152	591	7348362371432882	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/drivers/fsl_gpio.c.obj	a53765d6c682e0b1
+40	680	7348362371382879	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/YetAnotherExampleFolder/evkbimxrt1050_new_project/clock_config.c.obj	8b888bf49d152e
+234	681	7348362371812881	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/utilities/fsl_sbrk.c.obj	1a918cc284a43175
+171	682	7348362371842904	CMakeFiles/new_project.elf.dir/39572e0520b83c42fd8c8d413680248b/ExampleArchiveTarget/boards/evkbimxrt1050/xip/evkbimxrt1050_flexspi_nor_config.c.obj	1d79e4f91725e5e
+104	682	7348362371732894	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/system_MIMXRT1052.c.obj	4cea389ecfa7c23a
+129	683	7348362371842904	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/drivers/fsl_common.c.obj	ef67a0088d958753
+460	684	7348362372242850	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/utilities/fsl_memcpy.S.obj	5b9b8133797220ba
+139	684	7348362372252849	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/drivers/fsl_common_arm.c.obj	a90400d021906170
+115	697	7348362372512860	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/drivers/fsl_clock.c.obj	4648fcf35fd90275
+95	705	7348362372882871	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/gcc/startup_MIMXRT1052.S.obj	3854d2184e3b6932
+6	714	7348362372842998	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/YetAnotherExampleFolder/evkbimxrt1050_new_project/main.c.obj	115f12a026282c84
+192	723	7348362373142865	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/xip/fsl_flexspi_nor_boot.c.obj	6ad3b68c8f28762f
+161	760	7348362373162841	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/drivers/fsl_lpuart.c.obj	3a9d204ebc7615f7
+450	760	7348362373392940	CMakeFiles/new_project.elf.dir/98b88c40a635d4ec76d341418e99fc7f/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/utilities/fsl_syscall_stub.c.obj	5bdfcba29c590574
+58	761	7348362373522861	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/components/lists/fsl_component_generic_list.c.obj	df2378dd4c897524
+497	812	7348362374042806	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/utilities/fsl_assert.c.obj	8a2dddced04457d0
+581	884	7348362374802822	CMakeFiles/new_project.elf.dir/1e21db0b2d35ea1dce73595b392aafc6/devices/MIMXRT1052/utilities/debug_console/fsl_debug_console.c.obj	dc55b5a497e01ea6
+520	897	7348362374932829	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/utilities/str/fsl_str.c.obj	27e5ae0882376651
+897	1049	7348362376332864	new_project.elf	c39c85401ad1b2e3

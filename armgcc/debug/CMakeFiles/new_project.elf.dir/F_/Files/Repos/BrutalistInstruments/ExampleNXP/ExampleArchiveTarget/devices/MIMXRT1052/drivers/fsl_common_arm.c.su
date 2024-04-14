@@ -1,0 +1,4 @@
+F:/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/drivers/fsl_common_arm.c:121:6:MSDK_EnableCpuCycleCounter	8	static
+F:/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/drivers/fsl_common_arm.c:139:10:MSDK_GetCpuCycleCount	4	static
+F:/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/drivers/fsl_common_arm.c:175:13:DelayLoop	16	static
+F:/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/drivers/fsl_common_arm.c:205:6:SDK_DelayAtLeastUs	48	static

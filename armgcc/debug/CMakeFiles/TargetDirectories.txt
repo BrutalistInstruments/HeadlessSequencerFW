@@ -1,0 +1,3 @@
+F:/Files/Repos/BrutalistInstruments/YetAnotherExampleFolder/evkbimxrt1050_new_project/armgcc/debug/CMakeFiles/new_project.elf.dir
+F:/Files/Repos/BrutalistInstruments/YetAnotherExampleFolder/evkbimxrt1050_new_project/armgcc/debug/CMakeFiles/edit_cache.dir
+F:/Files/Repos/BrutalistInstruments/YetAnotherExampleFolder/evkbimxrt1050_new_project/armgcc/debug/CMakeFiles/rebuild_cache.dir
