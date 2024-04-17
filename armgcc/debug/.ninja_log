@@ -50,3 +50,4 @@
 58	302	7350269125410579	CMakeFiles/new_project.elf.dir/1e21db0b2d35ea1dce73595b392aafc6/devices/MIMXRT1052/utilities/debug_console/fsl_debug_console.c.obj	92a1d0a2f03295a0
 50	332	7350269125720546	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/utilities/str/fsl_str.c.obj	817864cd09ae769d
 4	186	7350273580781072	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/YetAnotherExampleFolder/evkbimxrt1050_new_project/main.c.obj	b5cf73459cd5a1a6
+17	205	7350281609911117	CMakeFiles/new_project.elf.dir/F_/Files/Repos/BrutalistInstruments/YetAnotherExampleFolder/evkbimxrt1050_new_project/main.c.obj	b5cf73459cd5a1a6

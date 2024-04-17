@@ -21,7 +21,7 @@ status_t BOARD_InitSEMC()
     /* Configure SDRAM. */
     sdramconfig.csxPinMux           = kSEMC_MUXCSX0;
     sdramconfig.address             = SDRAM_ADDRESS_START;
-    sdramconfig.memsize_kbytes      = 32 * 1024; /* 32MB = 32*1024*1KBytes*/
+    sdramconfig.memsize_kbytes      = SDRAM_SIZE;
     sdramconfig.portSize            = kSEMC_PortSize16Bit;
     sdramconfig.burstLen            = kSEMC_Sdram_BurstLen1;
     sdramconfig.columnAddrBitNum    = kSEMC_SdramColunm_9bit;
@@ -46,6 +46,12 @@ status_t BOARD_InitSEMC()
 
 void writeEvent(midiEvent_t inMidiEvent)
 {
+    if(sdRamIndex*(sizeof(midiEvent_t))+SDRAM_ADDRESS_START >= SDRAM_ADDRESS_END)
+    {
+        return;
+        //TODO:
+        //we should probably return an error here when we know what our error system will look like. 
+    }
     while(sdRam[sdRamIndex] != NULL)
     {
         sdRamIndex++;
@@ -67,4 +73,9 @@ void deleteEvent(midiEvent_t inMidiEvent)
     uint32_t ramDeleteIndex = (eventToDelete-SDRAM_ADDRESS_START) >> 4;
     sdRam[ramDeleteIndex] = NULL;
     sdRamIndex = ramDeleteIndex;
+}
+
+bool checkOutOfBounds()
+{
+
 }
