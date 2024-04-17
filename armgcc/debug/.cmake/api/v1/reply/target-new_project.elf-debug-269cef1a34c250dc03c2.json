@@ -25,7 +25,7 @@
 		[
 			"CMakeLists.txt",
 			"F:/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/tools/cmake_toolchain_files/armgcc.cmake",
-			"C:/Program Files/CMake/share/cmake-3.24/Modules/CMakeDetermineSystem.cmake",
+			"debug/CMakeFiles/3.24.0-rc3/CMakeSystem.cmake",
 			"F:/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/CMSIS/Core/Include/CMSIS_Include_core_cm.cmake",
 			"F:/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/tools/cmake_toolchain_files/mcux_config.cmake",
 			"F:/Files/Repos/BrutalistInstruments/ExampleNXP/ExampleArchiveTarget/devices/MIMXRT1052/all_lib_device.cmake",
@@ -70,7 +70,7 @@
 			{
 				"command" : 2,
 				"file" : 2,
-				"line" : 124,
+				"line" : 6,
 				"parent" : 3
 			},
 			{
@@ -565,7 +565,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "    -fstack-usage  -D__NEWLIB__  -fstack-usage  -D__NEWLIB__       -O0 -g -O0 -g     -DDEBUG     -DCPU_MIMXRT1052DVL6B     -DMCUXPRESSO_SDK     -DSERIAL_PORT_TYPE_UART=1     -g     -O0     -mcpu=cortex-m7     -Wall     -mthumb     -MMD     -MP     -fno-common     -ffunction-sections     -fdata-sections     -ffreestanding     -fno-builtin     -mapcs     -std=gnu99     -mfloat-abi=hard -mfpu=fpv5-d16     -DSDK_DEBUGCONSOLE=1 "
+					"fragment" : "   -fstack-usage  -D__NEWLIB__       -O0 -g -O0 -g -O0 -g     -DDEBUG     -DCPU_MIMXRT1052DVL6B     -DMCUXPRESSO_SDK     -DSERIAL_PORT_TYPE_UART=1     -g     -O0     -mcpu=cortex-m7     -Wall     -mthumb     -MMD     -MP     -fno-common     -ffunction-sections     -fdata-sections     -ffreestanding     -fno-builtin     -mapcs     -std=gnu99     -mfloat-abi=hard -mfpu=fpv5-d16     -DSDK_DEBUGCONSOLE=1 "
 				}
 			],
 			"includes" : 
@@ -655,7 +655,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "    -fstack-usage  -D__NEWLIB__  -fstack-usage  -D__NEWLIB__       -g -g     -DDEBUG     -D__STARTUP_CLEAR_BSS     -D__STARTUP_INITIALIZE_NONCACHEDATA     -mcpu=cortex-m7     -mthumb     -mfloat-abi=hard -mfpu=fpv5-d16 "
+					"fragment" : "   -fstack-usage  -D__NEWLIB__       -g -g -g     -DDEBUG     -D__STARTUP_CLEAR_BSS     -D__STARTUP_INITIALIZE_NONCACHEDATA     -mcpu=cortex-m7     -mthumb     -mfloat-abi=hard -mfpu=fpv5-d16 "
 				}
 			],
 			"includes" : 
@@ -727,7 +727,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-fstack-usage  -D__NEWLIB__  -fstack-usage  -D__NEWLIB__       -O0 -g -O0 -g     -DDEBUG     -DCPU_MIMXRT1052DVL6B     -DMCUXPRESSO_SDK     -DSERIAL_PORT_TYPE_UART=1     -g     -O0     -mcpu=cortex-m7     -Wall     -mthumb     -MMD     -MP     -fno-common     -ffunction-sections     -fdata-sections     -ffreestanding     -fno-builtin     -mapcs     -std=gnu99     -mfloat-abi=hard -mfpu=fpv5-d16     -DSDK_DEBUGCONSOLE=1",
+				"fragment" : "-fstack-usage  -D__NEWLIB__       -O0 -g -O0 -g -O0 -g     -DDEBUG     -DCPU_MIMXRT1052DVL6B     -DMCUXPRESSO_SDK     -DSERIAL_PORT_TYPE_UART=1     -g     -O0     -mcpu=cortex-m7     -Wall     -mthumb     -MMD     -MP     -fno-common     -ffunction-sections     -fdata-sections     -ffreestanding     -fno-builtin     -mapcs     -std=gnu99     -mfloat-abi=hard -mfpu=fpv5-d16     -DSDK_DEBUGCONSOLE=1",
 				"role" : "flags"
 			},
 			{
