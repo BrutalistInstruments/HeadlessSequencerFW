@@ -53,5 +53,5 @@ dkms.conf
 
 
 # build folders
-/.vscode
-/armgcc
+/.vscode/*
+/armgcc/*
