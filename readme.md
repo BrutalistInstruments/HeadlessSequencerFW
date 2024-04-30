@@ -1,6 +1,6 @@
 Overview
 ========
-This is a Headless Sequencer Project from Brutalist Instruments. Name is still TBD. Repo Name will change once this is detirmined
+This is the Firmware Respository for the HSQ-8801 from Brutalist Instruments.  
 
 SDK version  
 ===========
