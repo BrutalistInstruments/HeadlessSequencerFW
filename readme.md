@@ -2,7 +2,7 @@ Overview
 ========
 This is a Headless Sequencer Project from Brutalist Instruments. Name is still TBD. Repo Name will change once this is detirmined
 
-SDK version  
+SDK version
 ===========
 - Version: 2.15.000
 

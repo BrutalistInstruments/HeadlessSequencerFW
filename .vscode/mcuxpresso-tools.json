@@ -1,0 +1,21 @@
+{
+  "version": "1.4",
+  "toolchainPath": "C:/Users/OurBl/.mcuxpressotools/arm-gnu-toolchain-12.3.rel1-mingw-w64-i686-arm-none-eabi",
+  "linkedProjects": [],
+  "trustZoneType": "none",
+  "multicoreType": "none",
+  "debug": {
+    "linkserver": {},
+    "pemicro": {},
+    "segger": {}
+  },
+  "projectType": "sdk-freestanding",
+  "sdk": {
+    "boardId": "evkbimxrt1050",
+    "deviceId": "MIMXRT1052xxxxB",
+    "coreId": "core0_MIMXRT1052xxxxB",
+    "version": "",
+    "path": "c:\\Files\\repos\\NXPSDK",
+    "manifestId": "SDK_2.x_EVKB-IMXRT1050_manifest_v3_14"
+  }
+}
