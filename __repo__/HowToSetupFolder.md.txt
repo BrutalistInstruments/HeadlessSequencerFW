@@ -1,0 +1,6 @@
+In Windows, these folders are all symbolic links to the SDK. 
+[Instructions for setup](https://www.howtogeek.com/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/)
+They should link back to folders of the same name for the SDK needed in setup. 
+The names of these folders are the same as their names in the SDK.
+
+(If you're having permission problems with command prompt, use the GUI Tool)
