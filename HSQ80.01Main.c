@@ -70,7 +70,6 @@ int main(void)
         PRINTF("\r\n SEMC SDRAM Init Failed\r\n");
     }
 
-
     /* Update the core clock */
     SystemCoreClockUpdate();
 
