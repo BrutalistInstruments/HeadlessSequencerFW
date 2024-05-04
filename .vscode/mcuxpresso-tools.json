@@ -1,0 +1,21 @@
+{
+  "version": "1.4",
+  "toolchainPath": "${env:ARMGCC_PATH}",
+  "linkedProjects": [],
+  "trustZoneType": "none",
+  "multicoreType": "none",
+  "debug": {
+    "linkserver": {},
+    "pemicro": {},
+    "segger": {}
+  },
+  "projectType": "sdk-freestanding",
+  "sdk": {
+    "boardId": "evkbimxrt1050",
+    "deviceId": "MIMXRT1052xxxxB",
+    "coreId": "core0_MIMXRT1052xxxxB",
+    "version": "2.15.0",
+    "path": "${env:NXPSDK_PATH}",
+    "manifestId": "SDK_2.x_EVKB-IMXRT1050_manifest_v3_14"
+  }
+}
