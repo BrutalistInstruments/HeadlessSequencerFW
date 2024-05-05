@@ -1,6 +1,6 @@
 Overview
 ========
-This is a Headless Sequencer Project from Brutalist Instruments. Name is still TBD. Repo Name will change once this is detirmined
+This is the Firmware Respository for the HSQ-8801 from Brutalist Instruments.  
 
 SDK version
 ===========
@@ -18,6 +18,21 @@ Hardware requirements
 - Mini/micro USB cable
 - EVKB-IMXRT1050 board
 - Personal Computer
+
+
+# HOW TO SETUP THIS REPO
+=========================
+You'll need two environment variables set in your system:
+- NXPSDK_PATH, This should be your path to your SDK that you installed when setting up VS Code.
+	For example, mine is in c:\\Files\\repos\\NXPSDK
+- ARMGCC_PATH, This should be the path to your Arm-GNU install by NXP. 
+	For example, mine is in C:/Users/UserName/.mcuxpressotools/arm-gnu-toolchain-12.3.rel1-mingw-w64-i686-arm-none-eabi
+
+If you're unsure of your files are located, clone an example project, and check mcuxpresso-tools.json in the .vscode folder. 
+
+The other thing you'll need to setup is your \_\_repo\_\_ folder.
+This needs 3 links symbolic links in it, two three folders in the NXP SDK. 
+There are instructions in the repo folder on how to set this up.
 
 
 # HOW TO COMMIT TO THIS REPO

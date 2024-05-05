@@ -26,18 +26,24 @@ SET(CMAKE_EXECUTABLE_LIBRARY_SUFFIX)
 # CURRENT DIRECTORY
 SET(ProjDirPath ${CMAKE_CURRENT_SOURCE_DIR})
 
+if (DEFINED ENV{SdkRootDirPath})
+    SET(SdkRootDirPath "$ENV{SdkRootDirPath}")
+else()
+    SET(SdkRootDirPath "${ProjDirPath}/../../../../../..")
+endif()
+
 SET(EXECUTABLE_OUTPUT_PATH ${ProjDirPath}/${CMAKE_BUILD_TYPE})
 SET(LIBRARY_OUTPUT_PATH ${ProjDirPath}/${CMAKE_BUILD_TYPE})
 
 
-project(new_project)
+project(semc)
 
-set(MCUX_BUILD_TYPES debug release sdram_debug sdram_release flexspi_nor_debug flexspi_nor_release)
+set(MCUX_BUILD_TYPES debug release flexspi_nor_debug flexspi_nor_release)
 
-set(MCUX_SDK_PROJECT_NAME new_project.elf)
+set(MCUX_SDK_PROJECT_NAME semc.elf)
 
 if (NOT DEFINED SdkRootDirPath)
-    SET(SdkRootDirPath ${ProjDirPath}/../../../../..)
+    SET(SdkRootDirPath ${SdkRootDirPath})
 endif()
 
 include(${ProjDirPath}/flags.cmake)
@@ -45,26 +51,27 @@ include(${ProjDirPath}/flags.cmake)
 include(${ProjDirPath}/config.cmake)
 
 add_executable(${MCUX_SDK_PROJECT_NAME} 
-"${ProjDirPath}/../main.c"
-"${ProjDirPath}/../peripherals.c"
-"${ProjDirPath}/../peripherals.h"
+"${ProjDirPath}/../HSQ80.01Main.c"
 "${ProjDirPath}/../pin_mux.c"
 "${ProjDirPath}/../pin_mux.h"
-"${ProjDirPath}/../board.c"
-"${ProjDirPath}/../board.h"
-"${ProjDirPath}/../clock_config.c"
-"${ProjDirPath}/../clock_config.h"
-"${ProjDirPath}/../dcd.c"
-"${ProjDirPath}/../dcd.h"
+"${ProjDirPath}/../sdRam.h"
+"${ProjDirPath}/../sdRam.c"
+"${ProjDirPath}/../structures/midiEvent.h"
+"${SdkRootDirPath}/core/boards/evkbimxrt1050/board.c"
+"${SdkRootDirPath}/core/boards/evkbimxrt1050/board.h"
+"${SdkRootDirPath}/core/boards/evkbimxrt1050/clock_config.c"
+"${SdkRootDirPath}/core/boards/evkbimxrt1050/clock_config.h"
+"${SdkRootDirPath}/core/boards/evkbimxrt1050/dcd.c"
+"${SdkRootDirPath}/core/boards/evkbimxrt1050/dcd.h"
 )
 
 target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
     ${ProjDirPath}/..
-    ${SdkRootDirPath}/boards/evkbimxrt1050/project_template
+    ${SdkRootDirPath}/core/boards/evkbimxrt1050
 )
 
 
-include(${SdkRootDirPath}/devices/MIMXRT1052/all_lib_device.cmake)
+include(${SdkRootDirPath}/core/devices/MIMXRT1052/all_lib_device.cmake)
 
 IF(NOT DEFINED TARGET_LINK_SYSTEM_LIBRARIES)  
     SET(TARGET_LINK_SYSTEM_LIBRARIES "-lm -lc -lgcc -lnosys")  
