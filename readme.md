@@ -1,6 +1,6 @@
 Overview
 ========
-This is a Headless Sequencer Project from Brutalist Instruments. Name is still TBD. Repo Name will change once this is detirmined
+This is a HSQ-8801 Project from Brutalist Instruments.
 
 SDK version
 ===========
@@ -27,6 +27,8 @@ You'll need two environment variables set in your system:
 	For example, mine is in c:\\Files\\repos\\NXPSDK
 - ARMGCC_PATH, This should be the path to your Arm-GNU install by NXP. 
 	For example, mine is in C:/Users/UserName/.mcuxpressotools/arm-gnu-toolchain-12.3.rel1-mingw-w64-i686-arm-none-eabi
+
+[this guide will be helpful](https://www.howtogeek.com/668503/how-to-set-environment-variables-in-bash-on-linux/) for creating the variables. it is recommended to use nano as the text editor, rather than gedit.
 
 If you're unsure of your files are located, clone an example project, and check mcuxpresso-tools.json in the .vscode folder. 
 
