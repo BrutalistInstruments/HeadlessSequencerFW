@@ -12,13 +12,18 @@
 #include "clock_config.h"
 #include "board.h"
 #include "fsl_semc.h"
-//#include "peripherals.h"
 #include "sdRam.h"
+#include "fsl_lpuart.h"
 
 #include "system_MIMXRT1052.h"
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
+#define UART3           LPUART3
+#define UARTClock       BOARD_DebugConsoleSrcFreq() //this probably needs a little bit more looking into
+#define UART3_IRQn      LPUART3_IRQn
+#define UART3_Handler   LPUART3_IRQHandler
+#define MIDI_BAUD_RATE  31250
 
 /*******************************************************************************
  * Prototypes
@@ -27,6 +32,12 @@
 /*******************************************************************************
  * Code
  ******************************************************************************/
+void UART3_Handler()
+{
+    SDK_ISR_EXIT_BARRIER;
+}
+
+
 
 volatile uint32_t noteTimeCounter = 0;
 volatile uint32_t maxSequenceMS = UINT32_MAX;
