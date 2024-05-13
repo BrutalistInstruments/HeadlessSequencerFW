@@ -191,6 +191,15 @@ void BOARD_InitPins(void) {
   IOMUXC_SetPinConfig(IOMUXC_GPIO_EMC_39_SEMC_DQS, 0x0110F9U); 
   IOMUXC_SetPinConfig(IOMUXC_GPIO_EMC_40_SEMC_RDY, 0x0110F9U); 
   IOMUXC_SetPinConfig(IOMUXC_GPIO_EMC_41_SEMC_CSX0, 0x0110F9U); 
+
+  //UART 3 setup
+  CLOCK_EnableClock(kCLOCK_Iomuxc);           
+
+  IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_06_LPUART3_TXD, 0U); 
+  IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_07_LPUART3_RXD, 0U); 
+  IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_06_LPUART3_TXD, 0x10B0U); 
+  IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_07_LPUART3_RXD, 0x10B0U); 
+
 }
 
 /***********************************************************************************************************************

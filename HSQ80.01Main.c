@@ -65,6 +65,9 @@ void SysTick_DelayTicks(uint32_t n)
  */
 int main(void)
 {
+    lpuart_config_t config;
+    //uint16_t tmprxIndex = rxIndex; //these are just part of the demo, I don't think they're necessary.
+    //uint16_t tmptxIndex = txIndex;
 
     /* Init board hardware. */
     BOARD_ConfigMPU();
@@ -76,6 +79,22 @@ int main(void)
     CLOCK_SetMux(kCLOCK_SemcMux, 1);
     CLOCK_SetDiv(kCLOCK_SemcDiv, 1);
 
+    /*
+     * config.baudRate_Bps = 115200U;
+     * config.parityMode = kLPUART_ParityDisabled;
+     * config.stopBitCount = kLPUART_OneStopBit;
+     * config.txFifoWatermark = 0;
+     * config.rxFifoWatermark = 0;
+     * config.enableTx = false;
+     * config.enableRx = false;
+     */
+    LPUART_GetDefaultConfig(&config);
+    config.baudRate_Bps = MIDI_BAUD_RATE;
+    config.enableTx     = true;
+    config.enableRx     = true;
+
+    LPUART_Init(UART3, &config, UARTClock);
+
     if (BOARD_InitSEMC() != kStatus_Success)
     {
         PRINTF("\r\n SEMC SDRAM Init Failed\r\n");
@@ -83,6 +102,7 @@ int main(void)
 
     /* Update the core clock */
     SystemCoreClockUpdate();
+    uint8_t testInt = 0xAA;
 
     /* Set systick reload value to generate 1ms interrupt */
     if (SysTick_Config(SystemCoreClock / 1000U))
@@ -96,7 +116,8 @@ int main(void)
     /* Add user custom codes below */
     while (1)
     {
-
+        SysTick_DelayTicks(1000);
+        LPUART_WriteBlocking(UART3, &testInt, sizeof(uint8_t));
 
     }
 }
