@@ -200,6 +200,11 @@ void BOARD_InitPins(void) {
   IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_06_LPUART3_TXD, 0x10B0U); 
   IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_07_LPUART3_RXD, 0x10B0U); 
 
+  //UART 2 setup
+  IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_02_LPUART2_TXD, 0U);
+  IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_03_LPUART2_RXD, 0U); 
+  IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_02_LPUART2_TXD, 0x10B0U);
+  IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_03_LPUART2_RXD, 0x10B0U); 
 }
 
 /***********************************************************************************************************************

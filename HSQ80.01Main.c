@@ -24,6 +24,9 @@
 #define UART3_IRQn      LPUART3_IRQn
 #define UART3_Handler   LPUART3_IRQHandler
 #define MIDI_BAUD_RATE  31250
+#define UART2           LPUART2
+#define UART2_IRQn      LPUART2_IRQn
+#define UART2_Handler   LPUART2_IRQHandler
 
 /*******************************************************************************
  * Prototypes
@@ -33,6 +36,10 @@
  * Code
  ******************************************************************************/
 void UART3_Handler()
+{
+    SDK_ISR_EXIT_BARRIER;
+}
+void UART2_Handler()
 {
     SDK_ISR_EXIT_BARRIER;
 }
@@ -73,6 +80,7 @@ int main(void)
     BOARD_ConfigMPU();
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
+    BOARD_InitDebugConsole();
 
     CLOCK_InitSysPfd(kCLOCK_Pfd2, 29);
     /* Set semc clock to 163.86 MHz */
@@ -94,6 +102,7 @@ int main(void)
     config.enableRx     = true;
 
     LPUART_Init(UART3, &config, UARTClock);
+    LPUART_Init(UART2, &config, UARTClock);
 
     if (BOARD_InitSEMC() != kStatus_Success)
     {
@@ -118,6 +127,7 @@ int main(void)
     {
         SysTick_DelayTicks(1000);
         LPUART_WriteBlocking(UART3, &testInt, sizeof(uint8_t));
-
+        LPUART_WriteBlocking(UART2, &testInt, sizeof(uint8_t));
+        PRINTF("Console print.\r\n");
     }
 }
