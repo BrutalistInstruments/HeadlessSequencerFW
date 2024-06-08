@@ -103,14 +103,16 @@ void printEDMA()
     {
         if(sizeArray[i] == 8)
         {
-            uint8_t* currentMemoryAddress = (uint8_t*)offsetArray[i];
+            uint8_t* currentMemoryAddress = ((uint8_t*)offsetArray[i])+EDMA_START;
             uint8_t currentValue = *currentMemoryAddress;
             PRINTF("%d", currentMemoryAddress);
             PRINTF(": ");
             PRINTF("%d\n", currentValue);
         }else
         {
-            uint32_t* currentMemoryAddress = (uint32_t*)offsetArray[i];
+
+            uint32_t* currentMemoryAddress = (uint32_t*)EDMA_START;
+            currentMemoryAddress = currentMemoryAddress + offsetArray[i];
             uint32_t currentValue = *currentMemoryAddress;
             PRINTF("%d", currentMemoryAddress);
             PRINTF(": ");
