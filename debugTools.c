@@ -44,7 +44,7 @@ void printCCM()
     {
         uint32_t* currentMemoryAddress = (uint32_t*)addressArray[i];
         uint32_t currentValue = *currentMemoryAddress;
-        PRINTF("%d", i);
+        PRINTF("%d", currentMemoryAddress);
         PRINTF(": ");
         PRINTF("%d\n", currentValue);
     }
@@ -61,7 +61,7 @@ void printSRC()
     {
         uint32_t* currentMemoryAddress = (uint32_t*)addressArray[i];
         uint32_t currentValue = *currentMemoryAddress;
-        PRINTF("%d", i);
+        PRINTF("%d", currentMemoryAddress);
         PRINTF(": ");
         PRINTF("%d\n", currentValue);
     }
@@ -79,7 +79,7 @@ void printGPC()
     {
         uint32_t* currentMemoryAddress = (uint32_t*)addressArray[i];
         uint32_t currentValue = *currentMemoryAddress;
-        PRINTF("%d", i);
+        PRINTF("%d", currentMemoryAddress);
         PRINTF(": ");
         PRINTF("%d\n", currentValue);
     }
@@ -105,14 +105,14 @@ void printEDMA()
         {
             uint8_t* currentMemoryAddress = (uint8_t*)offsetArray[i];
             uint8_t currentValue = *currentMemoryAddress;
-            PRINTF("%d", i);
+            PRINTF("%d", currentMemoryAddress);
             PRINTF(": ");
             PRINTF("%d\n", currentValue);
         }else
         {
             uint32_t* currentMemoryAddress = (uint32_t*)offsetArray[i];
             uint32_t currentValue = *currentMemoryAddress;
-            PRINTF("%d", i);
+            PRINTF("%d", currentMemoryAddress);
             PRINTF(": ");
             PRINTF("%d\n", currentValue);
         }
@@ -139,14 +139,14 @@ void printEDMA()
             {
                 uint32_t* currentMemoryAddress = (uint32_t*)(offsetArray2[j] + (i*0x20));
                 uint32_t currentValue = *currentMemoryAddress;
-                PRINTF("%d", i);
+                PRINTF("%d", currentMemoryAddress);
                 PRINTF(": ");
                 PRINTF("%d\n", currentValue);
             }else
             {
                 uint16_t* currentMemoryAddress = (uint16_t*)(offsetArray2[j] + (i*0x20));
                 uint16_t currentValue = *currentMemoryAddress;
-                PRINTF("%d", i);
+                PRINTF("%d", currentMemoryAddress);
                 PRINTF(": ");
                 PRINTF("%d\n", currentValue);
 

@@ -56,6 +56,8 @@ add_executable(${MCUX_SDK_PROJECT_NAME}
 "${ProjDirPath}/../pin_mux.h"
 "${ProjDirPath}/../sdRam.h"
 "${ProjDirPath}/../sdRam.c"
+"${ProjDirPath}/../debugTools.c"
+"${ProjDirPath}/../debugTools.h"
 "${ProjDirPath}/../structures/midiEvent.h"
 "${SdkRootDirPath}/core/boards/evkbimxrt1050/board.c"
 "${SdkRootDirPath}/core/boards/evkbimxrt1050/board.h"

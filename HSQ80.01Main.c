@@ -14,7 +14,7 @@
 #include "fsl_semc.h"
 //#include "peripherals.h"
 #include "sdRam.h"
-
+#include "debugTools.h"
 #include "system_MIMXRT1052.h"
 /*******************************************************************************
  * Definitions
@@ -59,6 +59,7 @@ int main(void)
     BOARD_ConfigMPU();
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
+    BOARD_InitDebugConsole();
 
     CLOCK_InitSysPfd(kCLOCK_Pfd2, 29);
     /* Set semc clock to 163.86 MHz */
@@ -81,7 +82,8 @@ int main(void)
             //There should be some hardware error state here. 
         }
     }
-
+    PRINTF("Seomthing");
+    printWholeMemoryMap();
     /* Add user custom codes below */
     while (1)
     {
