@@ -19,6 +19,8 @@ void printWholeMemoryMap()
     printSRC();
     printGPC();
     printEDMA();
+    printTSC();
+    printAnalog();
     printMemorySection(DMAMUX_START, DMAMUX_REG_COUNT);
     printMemorySection(LPUART1_START, LPUART1_REG_COUNT);
     printMemorySection(LPUART2_START, LPUART2_REG_COUNT);
@@ -151,16 +153,41 @@ void printEDMA()
                 PRINTF("%d", currentMemoryAddress);
                 PRINTF(": ");
                 PRINTF("%d\n", currentValue);
-
             }
-
-
         }
-
-
     }
 
+}
 
+void printTSC()
+{
+    uint32_t addressArray[] = {0x400E000, 0x400E010, 0x400E020, 
+    0x400E030, 0x400E040, 0x400E050, 0x400E060, 0x400E070, 0x400E080};
+    uint8_t arraySize = 9;
 
+    for(int i = 0; i<arraySize; i++)
+    {
+        uint32_t* currentMemoryAddress = (uint32_t*)addressArray[i];
+        uint32_t currentValue = *currentMemoryAddress;
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+}
 
+void printAnalog()
+{
+    uint32_t addressArray[] = {0x400D8000, 0x400D8004, 0x400D8008, 
+    0x400D800C, 0x400D8010, 0x400D8014, 0x400D8018, 0x400D801C, 0x400D8020, 
+    0x400D8024, 0x400D8028, 0x400D802C, 0x400D8030, 0x400D8034, 0x400D8038, 0x400D803C, 0x400D8040, 0x400D8050, 0x400D8060, 0x400D8070, 0x400D8074, 0x400D8078, 0x400D807C, 0x400D8080, 0x400D8090, 0x400D80A0, 0x400D80A4, 0x400D80A8, 0x400D80AC, 0x400D80B0, 0x400D80C0, 0x400D80E0, 0x400D80E4, 0x400D80E8, 0x400D80EC, 0x400D80F0, 0x400D80F4, 0x400D80F8, 0x400D80FC, 0x400D8100, 0x400D8104, 0x400D8108, 0x400D810C, 0x400D8150, 0x400D8154, 0x400D8158, 0x400D815C, 0x400D8160, 0x400D8164, 0x400D8168, 0x400D816C, 0x400D8170, 0x400D8174, 0x400D8178, 0x400D817C};
+    uint8_t arraySize = 55;
+
+    for(int i = 0; i<arraySize; i++)
+    {
+        uint32_t* currentMemoryAddress = (uint32_t*)addressArray[i];
+        uint32_t currentValue = *currentMemoryAddress;
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
 }

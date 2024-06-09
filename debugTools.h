@@ -10,7 +10,7 @@ AIPS-1 ->               4000_0000 to 400F_FFFF
     DMA_CH_MUX ->       400E_C000 400E_FFFF -> Packed, complete
     EDMA ->             400E_8000 400E_BFFF -> Spread, complete
     SJC ->              400E_4000 400E_7FFF //missing?
-    TSC_DIG ->          400E_0000 400E_3FFF 
+    TSC_DIG ->          400E_0000 400E_3FFF -> Spread, complete
     CSU ->              400D_C000 400D_FFFF //missing?
     ANALOG ->           400D_8000 400D_BFFF 16KB 
     SNVS_HP ->          400D_4000 400D_7FFF 16KB 
@@ -169,3 +169,5 @@ void printCCM();
 void printSRC();
 void printGPC();
 void printEDMA();
+void printTSC();
+void printAnalog();
