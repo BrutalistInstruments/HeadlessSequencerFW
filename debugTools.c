@@ -21,7 +21,26 @@ void printWholeMemoryMap()
     printEDMA();
     printTSC();
     printAnalog();
+    printSNVS();
+    printWDOG1();
+    printWDOG2();
+    printGPIO(GPIO5_START);
+    printGPIO(GPIO4_START);
+    printGPIO(GPIO3_START);
+    printGPIO(GPIO2_START);
+    printGPIO(GPIO1_START);
+    printMemorySection(ADC2_START, ADC2_REG_COUNT);
+    printMemorySection(ADC1_START, ADC1_REG_COUNT);
     printMemorySection(DMAMUX_START, DMAMUX_REG_COUNT);
+    printEWM();
+    printMemorySection(FLEXRAM_START, FLEXRAM_REG_COUNT);
+    printMemorySection(IOMUXC_START, IOMUXC_REG_COUNT);
+    printMemorySection(IOMUXC_SNVS_START, IOMUXC_SNVS_REG_COUNT);
+    printMemorySection(IOMUXC_SNVS_GPR_START, IOMUXC_SNVS_GPR_REG_COUNT);
+    printACMP();
+    printPIT();
+    printAIPSConfig();
+    printMemorySection(DCDC_START, DCDC_REG_COUNT);
     printMemorySection(LPUART1_START, LPUART1_REG_COUNT);
     printMemorySection(LPUART2_START, LPUART2_REG_COUNT);
     printMemorySection(LPUART3_START, LPUART3_REG_COUNT);
@@ -190,4 +209,191 @@ void printAnalog()
         PRINTF(": ");
         PRINTF("%d\n", currentValue);
     }
+}
+
+
+void printSNVS()
+{
+    uint8_t offsetArray[] = {0x0, 0x04, 0x08, 0x14, 0x24, 0x28,
+    0x2C, 0x30, 0x34, 0x4C, 0x5C, 0x60, 0x68};
+
+    uint8_t arraySize = 13;
+    uint32_t startMemoryAddress = 0x400D4000;
+
+    for(int i = 0; i<arraySize; i++)
+    {
+        uint32_t* currentMemoryAddress = (uint32_t*)startMemoryAddress;
+        currentMemoryAddress = currentMemoryAddress + offsetArray[i];
+        uint32_t currentValue = *currentMemoryAddress;
+
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+
+    uint16_t offsetStarts[] = {0x0090, 0x0100, 0x0BF8, 0x08FC};
+    uint8_t arraySize2 = 4;
+
+    //For a = 0 to 3:
+    //LPGPRa_alias = 90h + (a × 4h)
+    //LPGPRa = 100h + (a × 4h)
+    for(int i = 0; i<4; i++)
+    {
+        uint32_t* currentMemoryAddress = (uint32_t*)startMemoryAddress;
+        currentMemoryAddress = currentMemoryAddress + offsetStart[0] + (i*4);
+        uint32_t currentValue = *currentMemoryAddress;
+
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+
+        currentMemoryAddress = (uint32_t*)startMemoryAddress;
+        currentMemoryAddress = currentMemoryAddress + offsetStart[1] + (i*4);
+        uint32_t currentValue = *currentMemoryAddress;
+
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+
+    uint32_t* currentMemoryAddress = (uint32_t*)startMemoryAddress;
+    currentMemoryAddress = currentMemoryAddress + offsetStart[2];
+    uint32_t currentValue = *currentMemoryAddress;
+
+    PRINTF("%d", currentMemoryAddress);
+    PRINTF(": ");
+    PRINTF("%d\n", currentValue);
+
+    currentMemoryAddress = (uint32_t*)startMemoryAddress;
+    currentMemoryAddress = currentMemoryAddress + offsetStart[3];
+    currentValue = *currentMemoryAddress;
+
+    PRINTF("%d", currentMemoryAddress);
+    PRINTF(": ");
+    PRINTF("%d\n", currentValue);
+}
+
+void printWDOG2()
+{
+
+    for(int i = 0; i<5; i++)
+    {
+        uint16_t* currentMemoryAddress = (uint16_t*)0x400D0000;
+        currentMemoryAddress = currentMemoryAddress + (i*2);
+        uint16_t currentValue = *currentMemoryAddress;
+
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+}
+
+void printWDOG1()
+{
+
+    for(int i = 0; i<5; i++)
+    {
+        uint16_t* currentMemoryAddress = (uint16_t*)0x400B8000;
+        currentMemoryAddress = currentMemoryAddress + (i*2);
+        uint16_t currentValue = *currentMemoryAddress;
+
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+}
+
+void printGPIO(uint32_t GPIOStartAddress)
+{
+    uint8_t offsetArray[] = {0x00, 0x04, 0x08, 0x0C, 0x10,
+    0x14, 0x18, 0x1C, 0x84, 0x88, 0x8C};
+
+    uint8_t arraySize = 11;
+
+    for(int i = 0; i<arraySize; i++)
+    {
+        uint32_t* currentMemoryAddress = (uint32_t*)GPIOStartAddress;
+        currentMemoryAddress = currentMemoryAddress + offsetArray[i];
+        uint32_t currentValue = *currentMemoryAddress;
+
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);        
+    }
+}
+
+void printEWM()
+{
+    for(int i = 0; i<6; i++)
+    {
+        uint8_t* currentMemoryAddress = (uint8_t*)0x400B4000;
+        currentMemoryAddress = currentMemoryAddres+i;
+        uint8_t currentValue = *currentMemoryAddress
+
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+}
+
+void printACMP()
+{
+    uint32_t addressArray[] = {0x40094000, 0x40094001, 0x40094002, 
+    0x40094003, 0x40094004, 0x40094005, 0x40094008, 0x40094009, 
+    0x4009400A, 0x4009400B, 0x4009400C, 0x4009400D, 0x40094010, 
+    0x40094011, 0x40094012, 0x40094013, 0x40094014, 0x40094015, 
+    0x40094018, 0x40094019, 0x4009401A, 0x4009401B, 0x4009401C, 0x4009401D};
+    
+    uint8_t arraySize = 24;
+
+    for(int i = 0; i<arraySize; i++)
+    {
+        uint8_t* currentMemoryAddress = (uint8_t*)addressArray[i];
+        uint8_t currentValue = *currentMemoryAddress;
+
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+
+    }
+
+}
+
+void printPIT()
+{
+    uint32_t addressArray[] = {0x40080000, 0x400800E0, 0x400800E4, 
+    0x40080100, 0x40080104, 0x40080108, 0x4008010C, 0x40080110, 
+    0x40080114, 0x40080118, 0x4008011C, 0x40080120, 0x40080124, 
+    0x40080128, 0x4008012C, 0x40080130, 0x40080134, 0x40080138, 0x4008013C};
+
+    uint8_t arraySize = 19;
+
+    for(int i = 0; i<arraySize; i++)
+    {
+        uint32_t* currentMemoryAddress = (uint32_t*)addressArray[i];
+        uint32_t currentValue = *currentMemoryAddress;
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+}
+
+void printAIPSConfig()
+{
+    uint32_t addressArray[] = {0x4007C000, 0x4007C040, 0x4007C044, 
+    0x4007C048, 0x4007C04C, 0x4007C050, 0x4017C000, 0x4017C040, 
+    0x4017C044, 0x4017C048, 0x4017C04C, 0x4017C050, 0x4027C000, 
+    0x4027C040, 0x4027C044, 0x4027C048, 0x4027C04C, 0x4027C050, 
+    0x4037C000, 0x4037C040, 0x4037C044, 0x4037C048, 0x4037C04C, 0x4037C050}
+    uint8_t arraySize = 24;
+
+    for(int i = 0; i<arraySize; i++)
+    {
+        uint32_t* currentMemoryAddress = (uint32_t*)addressArray[i];
+        uint32_t currentValue = *currentMemoryAddress;
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+
 }
