@@ -32,17 +32,17 @@ AIPS-1 ->               4000_0000 to 400F_FFFF
     AIPS-1 Config ->    4007_C000 4007_FFFF -> spread, complete
 
 AIPS-2                  4010_0000 to 401F_FFFF
-    KPP ->              401F_C000 401F_FFFF 
-    IOMUXC ->           401F_8000 401F_BFFF 
-    OCOTP ->            401F_4000 401F_7FFF 
-    GPT2 ->             401F_0000 401F_3FFF 
-    GPT1 ->             401E_C000 401E_FFFF 
-    QTimer4 ->          401E_8000 401E_BFFF 
-    QTimer3 ->          401E_4000 401E_7FFF 
-    QTimer2 ->          401E_0000 401E_3FFF 
-    QTimer1 ->          401D_C000 401D_FFFF 
-    FlexCAN2 ->         401D_4000 401D_7FFF 
-    FlexCAN1 ->         401D_0000 401D_3FFF 
+    KPP ->              401F_C000 401F_FFFF -> packed, complete
+    IOMUXC ->           401F_8000 401F_BFFF -> packed, complete
+    OCOTP ->            401F_4000 401F_7FFF -> spread, complete
+    GPT2 ->             401F_0000 401F_3FFF -> packed, complete
+    GPT1 ->             401E_C000 401E_FFFF -> packed, complete
+    QTimer4 ->          401E_8000 401E_BFFF -> spread, complete
+    QTimer3 ->          401E_4000 401E_7FFF -> spread, complete
+    QTimer2 ->          401E_0000 401E_3FFF -> spread, complete
+    QTimer1 ->          401D_C000 401D_FFFF -> spread, complete
+    FlexCAN2 ->         401D_4000 401D_7FFF -> spread, complete
+    FlexCAN1 ->         401D_0000 401D_3FFF -> spread, complete
     GPIO4 ->            401C_4000 401C_7FFF -> spread, complete
     GPIO3 ->            401C_0000 401C_3FFF -> spread, complete
     GPIO2 ->            401B_C000 401B_FFFF -> spread, complete
@@ -107,7 +107,6 @@ AIPS-4 -> 4030_0000 to 403F_FFFF
 #define MEMORY_MAP_START 0x40184000
 #define MEMORY_MAP_END 0x4018402C 
 
-
 #define DMAMUX_START 0x400EC000
 #define DMAMUX_REG_COUNT 30
 
@@ -131,8 +130,8 @@ AIPS-4 -> 4030_0000 to 403F_FFFF
 #define FLEXRAM_START 0x400B0000
 #define FLEXRAM_REG_COUNT 6
 
-#define IOMUXC_START 0x400AC0000
-#define IOMUXC_REG_COUNT 25
+#define IOMUXC_GPR_START 0x400AC0000
+#define IOMUXC_GPR_REG_COUNT 25
 
 #define IOMUXC_SNVS_START 0x400A8000
 #define IOMUXC_SNVS_REG_COUNT 8
@@ -142,6 +141,15 @@ AIPS-4 -> 4030_0000 to 403F_FFFF
 
 #define DCDC_START 0x40080000
 #define DCDC_REG_COUNT 3
+
+#define IOMUXC_START 0x401F8014
+#define IOMUXC_REG_COUNT 397
+
+#define GPT1_START 0x401EC000
+#define GPT1_REG_COUNT 9
+
+#define GPT2_START 0x401F0000
+#define GPT2_REG_COUNT 9
 
 #define LPUART1_START 0x40184000
 #define LPUART1_REG_COUNT 11 //do not count the first register
@@ -187,6 +195,7 @@ This gives us a bit of range for what we need, so we dont have to print the whol
 */
 
 void printMemorySection(uint32_t address, uint16_t numRegisters);
+void printMemorySection16(uint32_t address, uint16_t numRegisters);
 void printWholeMemoryMap();
 void printCCM();
 void printSRC();
@@ -202,3 +211,7 @@ void printEWM();
 void printACMP();
 void printPIT();
 void printAIPSConfig();
+void printKPP();
+void printOCOTP();
+void printQTimer();
+void printFlexCan();
