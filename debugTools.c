@@ -59,6 +59,7 @@ void printWholeMemoryMap()
     printMemorySection(GPT2_START, GPT2_REG_COUNT);
     printQTimer();
     printFlexCan();
+    printUSBOTG();
     printMemorySection(LPUART1_START, LPUART1_REG_COUNT);
     printMemorySection(LPUART2_START, LPUART2_REG_COUNT);
     printMemorySection(LPUART3_START, LPUART3_REG_COUNT);
@@ -539,4 +540,20 @@ void printFlexCan()
         PRINTF(": ");
         PRINTF("%d\n", currentValue);
     }
+}
+
+void printUSBOTG()
+{
+    uint32_t addressArray[] = { 0x402E0800, 0x402E0804, 0x402E0818, 0x402E081C};
+    uint8_t arraySize = 4;
+
+    for(int i = 0; i<arraySize; i++)
+    {
+        uint32_t* currentMemoryAddress = (uint32_t*)addressArray[i];
+        uint32_t currentValue = *currentMemoryAddress;
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+    
 }

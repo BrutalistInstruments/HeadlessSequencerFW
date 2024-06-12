@@ -60,9 +60,9 @@ AIPS-2                  4010_0000 to 401F_FFFF
     AIPS-2 Config ->    4017_C000 4017_FFFF -> spread, complete
 
 AIPS-3 -> 4020_0000 to 402F_FFF
-    DCP ->              402F_C000 402F_FFFF 
-    SEMC ->             402F_0000 402F_3FFF 
-    USB(USB) ->         402E_0000 402E_3FFF 
+    DCP ->              402F_C000 402F_FFFF //Missing?
+    SEMC ->             402F_0000 402F_3FFF //Missing?
+    USB(USB) ->         402E_0000 402E_3FFF -> spread, complete
     ENET ->             402D_8000 402D_BFFF 
     USDHC2 ->           402C_4000 402C_7FFF 
     USDHC1 ->           402C_0000 402C_3FFF 
@@ -215,3 +215,4 @@ void printKPP();
 void printOCOTP();
 void printQTimer();
 void printFlexCan();
+void printUSBOTG();
