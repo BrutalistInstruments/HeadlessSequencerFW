@@ -59,7 +59,6 @@ void printWholeMemoryMap()
     printMemorySection(GPT2_START, GPT2_REG_COUNT);
     printQTimer();
     printFlexCan();
-    printUSBOTG();
     printMemorySection(LPUART1_START, LPUART1_REG_COUNT);
     printMemorySection(LPUART2_START, LPUART2_REG_COUNT);
     printMemorySection(LPUART3_START, LPUART3_REG_COUNT);
@@ -68,6 +67,11 @@ void printWholeMemoryMap()
     printMemorySection(LPUART6_START, LPUART6_REG_COUNT);
     printMemorySection(LPUART7_START, LPUART7_REG_COUNT);
     printMemorySection(LPUART8_START, LPUART8_REG_COUNT);
+    printUSBOTG();
+    printEthernet();
+    printuSDHC();
+    printLCDIF();
+    printPXP();
 }
 
 void printCCM()
@@ -556,4 +560,141 @@ void printUSBOTG()
         PRINTF("%d\n", currentValue);
     }
     
+}
+
+void printEthernet()
+{
+    uint32_t addressArray[] = { 0x402D8004, 0x402D8008, 0x402D8010, 0x402D8014, 
+    0x402D8024, 0x402D8040, 0x402D8044, 0x402D8064, 0x402D8084, 0x402D80C4, 0x402D80E4, 
+    0x402D80E8, 0x402D80EC, 0x402D80F0, 0x402D8100, 0x402D8118, 0x402D811C, 0x402D8120, 
+    0x402D8124, 0x402D8144, 0x402D8180, 0x402D8184, 0x402D8188, 0x402D8190, 0x402D8194, 
+    0x402D8198, 0x402D819C, 0x402D81A0, 0x402D81A4, 0x402D81A8, 0x402D81AC, 0x402D81B0, 
+    0x402D81C0, 0x402D81C4, 0x402D8200, 0x402D8204, 0x402D8208, 0x402D820C, 0x402D8210, 
+    0x402D8214, 0x402D8218, 0x402D821C, 0x402D8220, 0x402D8224, 0x402D8228, 0x402D822C, 
+    0x402D8230, 0x402D8234, 0x402D8238, 0x402D823C, 0x402D8240, 0x402D8244, 0x402D8248, 
+    0x402D824C, 0x402D8250, 0x402D8254, 0x402D8258, 0x402D825C, 0x402D8260, 0x402D8264, 
+    0x402D8268, 0x402D826C, 0x402D8270, 0x402D8274, 0x402D8284, 0x402D8288, 0x402D828C, 
+    0x402D8290, 0x402D8294, 0x402D8298, 0x402D829C, 0x402D82A0, 0x402D82A4, 0x402D82A8, 
+    0x402D82AC, 0x402D82B0, 0x402D82B4, 0x402D82B8, 0x402D82BC, 0x402D82C0, 0x402D82C4, 
+    0x402D82C8, 0x402D82CC, 0x402D82D0, 0x402D82D4, 0x402D82D8, 0x402D82DC, 0x402D82E0, 
+    0x402D8400, 0x402D8404, 0x402D8408, 0x402D840C, 0x402D8410, 0x402D8414, 0x402D8418, 
+    0x402D8604, 0x402D8608, 0x402D860C, 0x402D8610, 0x402D8614, 0x402D8618, 0x402D861C, 
+    0x402D8620, 0x402D8624};
+
+    uint8_t arraySize = 104;
+
+    for(int i = 0; i<arraySize; i++)
+    {
+        uint32_t* currentMemoryAddress = (uint32_t*)addressArray[i];
+        uint32_t currentValue = *currentMemoryAddress;
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+}
+
+void printuSDHC()
+{
+    uint16_t offsetArray[] = { 0x0000, 0x0004, 0x0008, 0x000C, 0x0010, 0x0014, 0x0018, 0x001C, 
+    0x0020, 0x0024, 0x0028, 0x002C, 0x0030, 0x0034, 0x0038, 0x003C, 0x0040, 0x0044, 0x0048, 
+    0x0050, 0x0054, 0x0058, 0x0060, 0x0064, 0x0068, 0x00C0, 0x00C4, 0x00C8, 0x00CC, 0x0100, 
+    0x0104, 0x0108, 0x010C, 0x0110, 0x0114, 0x0118, 0x011C, 0x0120, 0x0124, 0x0128, 0x012C, 
+    0x0130, 0x0134, 0x0138, 0x0140, 0x0144, 0x0148, 0x0150, 0x0154, 0x0158, 0x015C};
+    
+    uint8_t offsetArraySize = 51;
+    uint32_t uSDHCStartAddress1 = 0x402C0000;        
+    uint32_t uSDHCStartAddress2 = 0x402C4000;
+
+    for(int i = 0; i<arraySize; i++)
+    {
+        uint32_t* currentMemoryAddress = (uint32_t*)uSDHCStartAddress1;
+        currentMemoryAddress = currentMemoryAddress + offSetArray[i];
+        uint32_t currentValue = *currentMemoryAddress;
+
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+
+    //we could do this in a loop, but copy pasta is faster for me to type I think. 
+
+        for(int i = 0; i<arraySize; i++)
+    {
+        uint32_t* currentMemoryAddress = (uint32_t*)uSDHCStartAddress2;
+        currentMemoryAddress = currentMemoryAddress + offSetArray[i];
+        uint32_t currentValue = *currentMemoryAddress;
+
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+
+}
+
+void printCSI()
+{
+    uint32_t addressArray[] = { 0x402BC000, 0x402BC004, 0x402BC008, 0x402BC00C, 
+    0x402BC010, 0x402BC014, 0x402BC018, 0x402BC020, 0x402BC024, 0x402BC028, 
+    0x402BC02C, 0x402BC030, 0x402BC034, 0x402BC048, 0x402BC04C};
+
+    uint8_t arraySize = 15;
+
+    for(int i = 0; i<arraySize; i++)
+    {
+        uint32_t* currentMemoryAddress = (uint32_t*)addressArray[i];
+        uint32_t currentValue = *currentMemoryAddress;
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+
+}
+
+void printLCDIF()
+{
+    uint32_t addressArray[] = { 0x402B8000, 0x402B8004, 0x402B8008, 0x402B800C, 
+    0x402B8010, 0x402B8014, 0x402B8018, 0x402B801C, 0x402B8020, 0x402B8024, 0x402B8028, 
+    0x402B802C, 0x402B8030, 0x402B8040, 0x402B8050, 0x402B8070, 0x402B8074, 0x402B8078, 
+    0x402B807C, 0x402B8080, 0x402B8090, 0x402B80A0, 0x402B80B0, 0x402B8190, 0x402B81A0, 
+    0x402B81B0, 0x402B82A0, 0x402B82A4, 0x402B82A8, 0x402B82AC, 0x402B8380, 0x402B8384, 
+    0x402B8388, 0x402B838C, 0x402B8390, 0x402B8394, 0x402B8398, 0x402B839C, 0x402B83A0, 
+    0x402B83A4, 0x402B83A8, 0x402B83AC, 0x402B8800, 0x402B8810, 0x402B8820, 0x402B8840, 
+    0x402B8850, 0x402B8860, 0x402B8880, 0x402B8890, 0x402B88A0, 0x402B88C0, 0x402B88D0, 
+    0x402B88E0, 0x402B8900, 0x402B8910, 0x402B8920, 0x402B8940, 0x402B8950, 0x402B8960, 
+    0x402B8980, 0x402B8990, 0x402B89A0, 0x402B89C0, 0x402B89D0, 0x402B89E0, 0x402B8A00, 
+    0x402B8A10, 0x402B8A20, 0x402B8A40, 0x402B8A50, 0x402B8A60, 0x402B8A80, 0x402B8A90, 
+    0x402B8AA0, 0x402B8AC0, 0x402B8AD0, 0x402B8AE0, 0x402B8B00, 0x402B8B10, 0x402B8B20, 
+    0x402B8B30, 0x402B8B40};
+    uint8_t arraySize = 83;
+
+    for(int i = 0; i<arraySize; i++)
+    {
+        uint32_t* currentMemoryAddress = (uint32_t*)addressArray[i];
+        uint32_t currentValue = *currentMemoryAddress;
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+}
+
+void printPXP()
+{
+    uint32_t addressArray[] = {0x402B4000, 0x402B4004, 0x402B4008, 0x402B400C, 
+    0x402B4010, 0x402B4014, 0x402B4018, 0x402B401C, 0x402B4020, 0x402B4024, 0x402B4028, 
+    0x402B402C, 0x402B4030, 0x402B4040, 0x402B4050, 0x402B4060, 0x402B4070, 0x402B4080, 
+    0x402B4090, 0x402B40A0, 0x402B40B0, 0x402B40B4, 0x402B40B8, 0x402B40BC, 0x402B40C0, 
+    0x402B40D0, 0x402B40E0, 0x402B40F0, 0x402B4100, 0x402B4110, 0x402B4120, 0x402B4130, 
+    0x402B4140, 0x402B4150, 0x402B4160, 0x402B4170, 0x402B4180, 0x402B4190, 0x402B41A0, 
+    0x402B41B0, 0x402B41C0, 0x402B4320, 0x402B4400, 0x402B4440};
+
+    uint8_t arraySize = 44;
+    for(int i = 0; i<arraySize; i++)
+    {
+        uint32_t* currentMemoryAddress = (uint32_t*)addressArray[i];
+        uint32_t currentValue = *currentMemoryAddress;
+        PRINTF("%d", currentMemoryAddress);
+        PRINTF(": ");
+        PRINTF("%d\n", currentValue);
+    }
+
 }

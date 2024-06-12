@@ -63,13 +63,13 @@ AIPS-3 -> 4020_0000 to 402F_FFF
     DCP ->              402F_C000 402F_FFFF //Missing?
     SEMC ->             402F_0000 402F_3FFF //Missing?
     USB(USB) ->         402E_0000 402E_3FFF -> spread, complete
-    ENET ->             402D_8000 402D_BFFF 
-    USDHC2 ->           402C_4000 402C_7FFF 
-    USDHC1 ->           402C_0000 402C_3FFF 
-    CSI ->              402B_C000 402B_FFFF 
-    LCDIF ->            402B_8000 402B_BFFF 
-    PXP ->              402B_4000 402B_7FFF 
-    FlexSPI ->          402A_8000 402A_BFFF 
+    ENET ->             402D_8000 402D_BFFF -> spread, complete
+    USDHC2 ->           402C_4000 402C_7FFF -> spread, complete
+    USDHC1 ->           402C_0000 402C_3FFF -> spread, complete
+    CSI ->              402B_C000 402B_FFFF -> spread, compelte
+    LCDIF ->            402B_8000 402B_BFFF -> spread, complete
+    PXP ->              402B_4000 402B_7FFF -> spread, complete
+    FlexSPI ->          402A_8000 402A_BFFF
     AIPS-3 Config ->    4027_C000 4027_FFFF -> spread, complete
 
 AIPS-4 -> 4030_0000 to 403F_FFFF
@@ -216,3 +216,8 @@ void printOCOTP();
 void printQTimer();
 void printFlexCan();
 void printUSBOTG();
+void printEthernet();
+void printuSDHC();
+void printCSI();
+void printLCDIF();
+void printPXP();
